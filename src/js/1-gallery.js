@@ -1,6 +1,6 @@
 
 
-import SimpleLightbox from "/My documents/GitHub/goit-js-hw-09/node_modules/simplelightbox/dist/simple-lightbox.esm";
+import SimpleLightbox from "/simplelightbox/dist/simple-lightbox.esm";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 const images = [
