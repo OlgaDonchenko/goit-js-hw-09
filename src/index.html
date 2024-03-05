@@ -5,6 +5,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HW-9</title>
+    <link rel="stylesheet" href="path/to/simple-lightbox.css" />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
@@ -12,6 +13,10 @@
       <li><a href="1-gallery.html">To gallery</a></li>
       <li><a href="2-form.html">To form</a></li>
     </ul>
+    <script src="path/to/simple-lightbox.js"></script>
+    <script>
+      const gallery = new SimpleLightbox('.gallery a');
+    </script>
     <script src="./js/1-gallery.js"></script>
     <script src="./js/2-form.js" type="module"></script>
   </body>
