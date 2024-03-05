@@ -2,7 +2,7 @@
 
 const form = document.querySelector('.feedback-form');
 
-// Функція для збереження значень полів у локальне сховище
+
 function saveToLocalStorage() {
     const formData = {
         email: form.elements.email.value.trim(),
@@ -12,7 +12,6 @@ function saveToLocalStorage() {
     localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
 
-// Функція для заповнення полів форми зі значеннями з локального сховища
 function populateFormFromLocalStorage() {
     const savedFormData = JSON.parse(localStorage.getItem('feedback-form-state'));
 
@@ -22,22 +21,19 @@ function populateFormFromLocalStorage() {
     }
 }
 
-// Прослуховуємо події input і submit на формі
 form.addEventListener('input', saveToLocalStorage);
 form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Забороняємо дійсне подання форми
+    event.preventDefault(); 
 
     const formData = {
         email: form.elements.email.value.trim(),
         message: form.elements.message.value.trim()
     };
 
-    // Перевіряємо, чи заповнені обидва елементи форми
     if (formData.email && formData.message) {
-        // Виводимо дані форми в консоль
+     
         console.log(formData);
 
-        // Очищаємо локальне сховище та поля форми
         localStorage.removeItem('feedback-form-state');
         form.reset();
     } else {
@@ -45,5 +41,5 @@ form.addEventListener('submit', function(event) {
     }
 });
 
-// При завантаженні сторінки заповнюємо форму зі значеннями з локального сховища
+
 populateFormFromLocalStorage();
