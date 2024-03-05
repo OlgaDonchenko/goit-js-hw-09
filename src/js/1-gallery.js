@@ -1,5 +1,8 @@
-// import SimpleLightbox from "simplelightbox";
-// import "simplelightbox/dist/simple-lightbox.min.css";
+
+"use strict";
+import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 const images = [
   {
     preview:
@@ -67,50 +70,19 @@ const images = [
 ];
 
 const container = document.querySelector(".gallery");
-container.insertAdjacentHTML('beforeEnd', createProductsMarkup(images));
-
+container.innerHTML = createProductsMarkup(images);
 
 function createProductsMarkup(gallery) {
     return gallery.map(({ preview, original, description }) => `
         <li class="gallery-item">
-            <a class="gallery-link" href="#" data-source="${original}">
+            <a class="gallery-link" href="${original}">
                 <img class="gallery-image" src="${preview}" alt="${description}">
             </a>
         </li>`
     ).join("");
 }
 
-let currentModal = null;
-
-container.addEventListener('click', (event) => {
-    event.preventDefault(); 
-
-    if (event.target === event.currentTarget) {
-        return;
-    }
-
-    const imageLink = event.target.closest('.gallery-link');
-    if (!imageLink) {
-        return;
-    }
-
-    const originalSource = imageLink.dataset.source;
-
-    currentModal = basicLightbox.create(
-        `<div class="modal">
-            <img src="${originalSource}" alt="">
-        </div>`
-    );
-
-    currentModal.show();
-});
-
-document.addEventListener('keyup', ({ code }) => {
-    if (code !== 'Escape') {
-        return;
-    }
-
-    if (currentModal) {
-        currentModal.close();
-    }
+const lightbox = new SimpleLightbox(".gallery a", {
+    captions: true, 
+    captionDelay: 250 
 });
