@@ -2,23 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HW-9</title>
+    <title>Document</title>
     
     <script type="module" crossorigin src="/goit-js-hw-09/assets/styles-92d0ea67.js"></script>
-    <script type="module" crossorigin src="/goit-js-hw-09/assets/vendor-6f78bbeb.js"></script>
-    <script type="module" crossorigin src="/goit-js-hw-09/assets/1-gallery-cfd2d406.js"></script>
     <script type="module" crossorigin src="/goit-js-hw-09/assets/2-form-5f40d94c.js"></script>
     <link rel="stylesheet" href="/goit-js-hw-09/assets/styles-9917c0bb.css">
-    <link rel="stylesheet" href="/goit-js-hw-09/assets/vendor-ef539242.css">
   </head>
   <body>
-    <ul>
-      <li><a href="./1-gallery.html">To gallery</a></li>
-      <li><a href="./2-form.html">To form</a></li>
-    </ul>
-    
+    <form class="feedback-form" autocomplete="off">
+      <label>
+        Email
+        <input type="email" name="email" autofocus />
+      </label>
+      <label>
+        Message
+        <textarea name="message" rows="8"></textarea>
+      </label>
+      <button type="submit">Submit</button>
+    </form>
     
   </body>
 </html>
